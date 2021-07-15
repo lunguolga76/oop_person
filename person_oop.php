@@ -2,12 +2,12 @@
 class Person{
     private $name;
     private $lastName;
-    private $freinds;
+    private $friends;
     
     public function __construct(string $name, string $lastName){
         $this->name=$name;
         $this->lastName=$lastName;
-        $this->freinds=[];
+        $this->friends=[];
 
     }
     private function getName(){
@@ -29,12 +29,12 @@ class Person{
     }
    
     public function sayHelloToPeople(Person $first, Person $second){
-        if(in_array($first, $this->freinds)){
+        if(in_array($first, $this->friends)){
             $firstGreeting='Hi, '.$first->getName();
         }else{
             $firstGreeting='Nice to meet you, '.$first->getName();
         }
-        if(in_array($second, $this->freinds)){
+        if(in_array($second, $this->friends)){
             $secondGreeting='Hi, '.$second->getName();
         }else{
             $secondGreeting='Nice to meet you, '.$second->getName();
@@ -46,8 +46,8 @@ class Person{
         $firstGreeting,
         $secondGreeting,
     ); 
-         $this->freinds[$first->getFullName()]=$first;
-         $this->freinds[$second->getFullName()]=$second;
+         $this->friends[$first->getFullName()]=$first;
+         $this->friends[$second->getFullName()]=$second;
         
         return $greeting;
 
@@ -55,11 +55,11 @@ class Person{
     public function  __toString()
     {
        $friendNames = [];
-       /**Person $freind */
-       foreach($this->freinds as $freind){
-           $friendNames[]=$freind->getName();
+       /**Person $friend */
+       foreach($this->friends as $friend){
+           $friendNames[]=$friend->getName();
        }
-        return $this->whoIs() . implode(',', $freindNames);
+        return $this->whoIs() . implode(',', $friendNames);
 
     }
 }
